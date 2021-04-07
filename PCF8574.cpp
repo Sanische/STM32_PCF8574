@@ -1,8 +1,7 @@
 #include "PCF8574.h"
 
 PCF8574::PCF8574()
-{
-}
+{}
 
 HAL_StatusTypeDef PCF8574::begin(I2C_HandleTypeDef *hi2c, uint8_t address) {
 
@@ -65,14 +64,13 @@ bool PCF8574::PCF8574_digitalRead (uint8_t pin)
 	return (_PIN & (1 << pin)) ? 1 : 0;
 }
 
-void PCF8574::clear() {
-
+void PCF8574::PCF8574_clear(){
 	/* User friendly wrapper for write() */
-	PCF8574_WriteDataByte (0x00);
+	PCF8574_WriteDataByte(0);
 }
 
-void PCF8574::set() {
+void PCF8574::PCF8574_set() {
 
 	/* User friendly wrapper for write() */
-	write(0xFF);
+	PCF8574_WriteDataByte(0xFF);
 }
